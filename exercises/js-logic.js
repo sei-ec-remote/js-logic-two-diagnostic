@@ -4,7 +4,7 @@ GOAL: Read each question and write code to complete each task
       given. Do not change starter code or function names.
 
 TEST: To test run the commands `npm run test` in your terminal
-      at the root of this directory.(js-logic-one-diagnostic)
+      at the root of this directory.(js-logic-two-diagnostic)
 */
 
 /*
