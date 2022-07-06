@@ -14,8 +14,11 @@ Write a function that takes in an array of 10 numbers and returns those numbers 
 
 Ex: If the array that was passed in was [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ] the return value should be '(012) 456-7890'. There should be a space between the area code and the start of the phone number.
 */
-const createPhoneNumber = () => {
-
+const createPhoneNumber = (numb) => {
+      const first = numb.slice(0,3).join("")
+      const second = numb.slice(3,6).join("")
+      const third = numb.slice(6,10).join("")
+      return `(${first}) ${second}-${third}`
 }
 
 /*
@@ -25,8 +28,18 @@ Write a function that takes in a string and return the number of dupclicate valu
 
 Ex: If the string that was passed in was 'abc' the return value should be 0, also if 'aabbcc' is passed in 3 is returned. Also be aware that 'B' and 'b' are not equvalent. This is true for all capitalized values and there lower case counter part. 
 */
-const countTheDups = () => {
-
+const countTheDups = (string) => {
+      let characters = []
+      let count = 0
+      string.split("").forEach(element => {
+            if(characters.includes(element)){
+                  count ++
+            }
+            else{
+                  characters.push(element)
+            }
+      });
+      return count
 }
 
 /*
@@ -36,8 +49,18 @@ Write a function that takes in a string and return true or false if the string c
 
 Ex: If the string that was passed in was 'abc' the return value should be false, also if 'xoxo' is passed in true is returned. 
 */
-const boolsXOs = () => {
-
+const boolsXOs = (string) => {
+      let xcount = 0
+      let ocount = 0
+      string.split("").forEach(element=>{
+            if(element == "x"){
+                  xcount++
+            }
+            else if(element == "o"){
+                  ocount++
+            }
+      })
+      return (xcount == ocount && xcount > 0)
 }
 
 /* !!! DO NOT MODIFY ANYTHING BELOW HERE !!! */
