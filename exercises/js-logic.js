@@ -14,8 +14,13 @@ Write a function that takes in an array of 10 numbers and returns those numbers 
 
 Ex: If the array that was passed in was [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ] the return value should be '(012) 456-7890'. There should be a space between the area code and the start of the phone number.
 */
-const createPhoneNumber = () => {
+const createPhoneNumber = (rawNum) => {
+      rawNum.splice(6, 0, "-");
+      rawNum.splice(3, 0, ") ");
+      rawNum.unshift("(");
 
+      const phoneNum = rawNum.join("");
+      return phoneNum;
 }
 
 /*
@@ -25,8 +30,21 @@ Write a function that takes in a string and return the number of dupclicate valu
 
 Ex: If the string that was passed in was 'abc' the return value should be 0, also if 'aabbcc' is passed in 3 is returned. Also be aware that 'B' and 'b' are not equvalent. This is true for all capitalized values and there lower case counter part. 
 */
-const countTheDups = () => {
+const countTheDups = (str) => {
+      // count duplicates
+      const freq = {};
+      for (let ch of str) {
+            // ordinarily, we'd start at 1 for a counting function, but since
+            // the goal is to count only duplicates, we start at 0 instead
+            if (freq[ch] === undefined) { freq[ch] = 0; }
+            else { freq[ch]++; }
+      }
 
+      const sum = Object.keys(freq).reduce((sum, key) => {
+            return sum + freq[key];
+      }, 0);
+
+      return sum;
 }
 
 /*
@@ -36,8 +54,16 @@ Write a function that takes in a string and return true or false if the string c
 
 Ex: If the string that was passed in was 'abc' the return value should be false, also if 'xoxo' is passed in true is returned. 
 */
-const boolsXOs = () => {
+const boolsXOs = (str) => {
+      // count letters
+      const freq = {};
+      for (let ch of str) {
+            if (freq[ch] === undefined) { freq[ch] = 1; }
+            else { freq[ch]++; }
+      }
 
+      if (freq["x"] === freq["o"]) { return true; }
+      else { return false; }
 }
 
 /* !!! DO NOT MODIFY ANYTHING BELOW HERE !!! */
