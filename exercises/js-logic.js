@@ -14,8 +14,11 @@ Write a function that takes in an array of 10 numbers and returns those numbers 
 
 Ex: If the array that was passed in was [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ] the return value should be '(012) 456-7890'. There should be a space between the area code and the start of the phone number.
 */
-const createPhoneNumber = () => {
-
+const createPhoneNumber = (arr) => {
+      let area = `(${arr[0]}${arr[1]}${arr[2]})`
+      let firstThree = ` ${arr[3]}${arr[4]}${arr[5]}-`
+      let lastFour = `${arr[6]}${arr[7]}${arr[8]}${arr[9]}`
+      return area+firstThree+lastFour
 }
 
 /*
@@ -25,8 +28,19 @@ Write a function that takes in a string and return the number of dupclicate valu
 
 Ex: If the string that was passed in was 'abc' the return value should be 0, also if 'aabbcc' is passed in 3 is returned. Also be aware that 'B' and 'b' are not equvalent. This is true for all capitalized values and there lower case counter part. 
 */
-const countTheDups = () => {
+const countTheDups = (str) => {
+      let makeUpper = str.toUpperCase()
 
+      let num = 0
+      let array = makeUpper.split('')
+      let arrayCounter = []
+      array.forEach((letter) => {
+            if (!arrayCounter.includes(letter) && makeUpper.split(letter).length - 1 > 1) {
+                  num++
+                  arrayCounter.push(letter)
+            }
+      })
+      return num
 }
 
 /*
@@ -36,8 +50,11 @@ Write a function that takes in a string and return true or false if the string c
 
 Ex: If the string that was passed in was 'abc' the return value should be false, also if 'xoxo' is passed in true is returned. 
 */
-const boolsXOs = () => {
-
+const boolsXOs = (str) => {
+      let strToArr = str.split('')
+      let xArr = strToArr.filter((letter) => letter == 'x')
+      let oArr = strToArr.filter((letter) => letter == 'o')
+      return xArr.length == oArr.length
 }
 
 /* !!! DO NOT MODIFY ANYTHING BELOW HERE !!! */
