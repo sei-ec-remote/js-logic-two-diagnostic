@@ -35,17 +35,17 @@ Ex: If the string that was passed in was 'abc' the return value should be 0, als
 */
 const countTheDups = (str) => {
       let arr = str.split("");
-      let counts = {},
-      duplicate = 0;
-      arr.forEach(function(x) {
-            counts[x] = (counts[x] || 0) + 1;
-      });
-      for (let key in counts) {
-            if (counts.hasOwnProperty(key)) {
-            counts[key] > 1 ? duplicate++ : duplicate;
+      const uniqueItems = new Set();
+      const duplicates = new Set();
+      for (const value of arr) {
+            if (uniqueItems.has(value)) {
+            duplicates.add(value);
+            uniqueItems.delete(value);
+            } else {
+            uniqueItems.add(value);
             }
       }
-      return duplicate
+      return duplicates.size;
 }
 
 /*
