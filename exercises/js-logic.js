@@ -14,10 +14,11 @@ Write a function that takes in an array of 10 numbers and returns those numbers 
 
 Ex: If the array that was passed in was [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ] the return value should be '(012) 456-7890'. There should be a space between the area code and the start of the phone number.
 */
-const createPhoneNumber = () => {
-
+let numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+const createPhoneNumber = (number) => {
+      console.log('('+number[0] + number[1] + number[2]+')' + ' ' + number[3] + number[4] + number[5] + '-' + number[6] + number[7] + number[8] + number[9])
 }
-
+createPhoneNumber(numbers)
 /*
 Question 2
 
@@ -36,10 +37,18 @@ Write a function that takes in a string and return true or false if the string c
 
 Ex: If the string that was passed in was 'abc' the return value should be false, also if 'xoxo' is passed in true is returned. 
 */
-const boolsXOs = () => {
-
+string = ['x', 'o', 'x']
+const boolsXOs = (str) => {
+   str.foreach(() => {
+      if (str !== 'x' || str !== 'o') {
+            return false
+      } else {
+            console.log('true')
+      }
+   }
+   )
 }
-
+boolsXOs(string)
 /* !!! DO NOT MODIFY ANYTHING BELOW HERE !!! */
 module.exports = {
     createPhoneNumber,
