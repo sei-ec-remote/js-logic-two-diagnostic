@@ -14,8 +14,12 @@ Write a function that takes in an array of 10 numbers and returns those numbers 
 
 Ex: If the array that was passed in was [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ] the return value should be '(012) 456-7890'. There should be a space between the area code and the start of the phone number.
 */
-const createPhoneNumber = () => {
-
+const arr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+const createPhoneNumber = (numbers) => {
+      const areaCode = numbers.slice(0, 3).join("")
+      const three = numbers.slice(3, 6).join("")
+      const four = numbers.slice(6, 10).join("")
+      return `(${areaCode}) ${three}-${four}`
 }
 
 /*
